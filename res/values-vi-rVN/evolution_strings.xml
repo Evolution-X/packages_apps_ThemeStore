@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Chủ đề</string>
+
+    <string name="system_themes_title">Chủ đề hệ thống</string>
+    <string name="system_icons_title">Biểu tượng hệ thống</string>
+    <string name="no_theme_packages">Chưa có gói chủ đề nào được cài đặt</string>
+    <string name="no_theme_packages_desc">Cài đặt gói chủ đề để tùy chỉnh biểu tượng hệ thống và giao diện</string>
+    <string name="theme_applied">Đã áp dụng</string>
+    <string name="theme_not_applied">Chưa áp dụng</string>
+    <string name="create_theme">Tạo chủ đề</string>
+    <string name="theme_creator_title">Trình tạo chủ đề</string>
+    <string name="theme_name">Tên chủ đề</string>
+    <string name="theme_name_hint">Đặt tên cho chủ đề của bạn để dễ nhận biết sau này</string>
+    <string name="section_wifi_icons">Biểu tượng Wi-Fi</string>
+    <string name="section_signal_icons">Biểu tượng sóng di động</string>
+    <string name="wifi_icons_desc">Thay thế 5 chỉ báo cường độ tín hiệu Wi-Fi hiển thị trên thanh trạng thái</string>
+    <string name="signal_icons_desc">Thay thế 5 chỉ báo cường độ sóng di động hiển thị trên thanh trạng thái</string>
+    <string name="current_icons_label">HIỆN TẠI</string>
+    <string name="your_icons_label">BIỂU TƯỢNG THAY THẾ CỦA BẠN</string>
+    <string name="import_drawable">Nhập</string>
+    <string name="save_and_apply">Lưu &amp; Áp dụng</string>
+    <string name="save_and_apply_count">Lưu &amp; Áp dụng (%d biểu tượng)</string>
+    <string name="creator_guide_title">Cách tạo chủ đề biểu tượng hệ thống</string>
+    <string name="creator_guide_body">Thay thế biểu tượng thanh trạng thái hệ thống bằng biểu tượng của riêng bạn. Nhập ảnh PNG hoặc vector (khuyến nghị 24\u00d724dp, nền trong suốt, tiền cảnh màu trắng). Hệ thống sẽ pha màu chúng để phù hợp với chủ đề của bạn. Bạn không cần thay thế tất cả các biểu tượng — chỉ những biểu tượng bạn nhập mới được ghi đè.</string>
+    <string name="advanced_overrides">Nâng cao: Ghi đè bất kỳ drawable nào</string>
+    <string name="advanced_overrides_desc">Tìm kiếm và thay thế bất kỳ tài nguyên drawable hệ thống nào theo tên</string>
+    <string name="search_resource_name">Tên tài nguyên</string>
+    <string name="search_resource_hint">ví dụ: ic_bluetooth, stat_sys_data, ic_qs_</string>
+    <string name="search_results_count">Tìm thấy %d tài nguyên</string>
+
+    <string name="featured">Nổi bật</string>
+    <string name="installed">Đã cài đặt</string>
+    <string name="themes">Chủ đề</string>
+    <string name="search_themes">Tìm kiếm chủ đề</string>
+    <string name="recent_searches">Tìm kiếm gần đây</string>
+    <string name="no_recent_searches">Không có tìm kiếm nào gần đây</string>
+    <string name="clear_all">Xóa tất cả</string>
+    <string name="no_results_found">Không tìm thấy kết quả</string>
+
+    <string name="loading_themes">Đang tải chủ đề \u2026</string>
+    <string name="failed_to_load_themes">Tải chủ đề thất bại</string>
+    <string name="no_themes_found">Không tìm thấy chủ đề</string>
+    <string name="no_themes_available">Không có chủ đề nào</string>
+    <string name="try_different_search">Thử từ khóa tìm kiếm khác</string>
+    <string name="check_back_later">Hãy quay lại sau để xem chủ đề mới</string>
+    <string name="retry">Thử lại</string>
+
+    <string name="installed_components">Thành phần đã cài đặt</string>
+    <string name="active_theme_components">Thành phần chủ đề đang hoạt động</string>
+    <string name="active_theme_components_desc">Xem tất cả thành phần hiện đang được áp dụng cho hệ thống của bạn</string>
+    <string name="ui_style">Kiểu giao diện</string>
+    <string name="icon_theme_components">Thành phần chủ đề biểu tượng</string>
+    <string name="no_icon_themes_installed">Chưa cài đặt chủ đề biểu tượng nào</string>
+    <string name="browse_for_icon_themes">Duyệt cửa hàng chủ đề để cài đặt chủ đề biểu tượng</string>
+    <string name="active">Đang hoạt động</string>
+
+    <string name="app_icon_packs">Bộ biểu tượng ứng dụng</string>
+    <string name="themed_icons">Biểu tượng theo chủ đề</string>
+    <string name="themed_icons_desc">Biểu tượng đơn sắc thích ứng với màu hình nền của bạn</string>
+    <string name="icon_style">Kiểu biểu tượng</string>
+    <string name="axicons">AxIcons</string>
+    <string name="neutral">Trung tính</string>
+    <string name="aosp">AOSP</string>
+    <string name="accent">Màu nhấn</string>
+    <string name="default_system_icon_pack">Bộ biểu tượng hệ thống mặc định</string>
+
+    <string name="download">Tải xuống</string>
+    <string name="install">Cài đặt</string>
+    <string name="apply">Áp dụng</string>
+    <string name="apply_changes">Áp dụng thay đổi</string>
+    <string name="disable">Vô hiệu hóa</string>
+    <string name="uninstall">Gỡ cài đặt</string>
+    <string name="resume_installation">Tiếp tục cài đặt</string>
+    <string name="downloading">Đang tải %s\u2026</string>
+    <string name="installing">Đang cài đặt\u2026</string>
+    <string name="update_to">Cập nhật lên v%s</string>
+    <string name="pending_changes">Thay đổi đang chờ</string>
+    <string name="components">Thành phần</string>
+    <string name="tags">Thẻ</string>
+    <string name="error_prefix">Lỗi: %s</string>
+    <string name="components_installed">Đã cài đặt %1$d trên %2$d thành phần</string>
+
+    <string name="back">Quay lại</string>
+    <string name="search">Tìm kiếm</string>
+    <string name="refresh">Làm mới</string>
+    <string name="remove">Xóa</string>
+    <string name="clear">Xóa</string>
+
+    <string name="default_ui_style">Mặc định (Axion)</string>
+</resources>
