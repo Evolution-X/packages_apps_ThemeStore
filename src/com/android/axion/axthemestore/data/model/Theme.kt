@@ -133,6 +133,7 @@ object StandardComponents {
     const val BACK_GESTURE = "back_gesture"
     const val CHARGING_ANIMATION = "charging_animation"
     const val BATTERY_STYLE = "battery_style"
+    const val QS_WAVEFORM = "qs_waveform"
 }
 
 data class IconPack(
@@ -140,4 +141,3 @@ data class IconPack(
     val label: String,
     val icon: Drawable? = null
 )
-

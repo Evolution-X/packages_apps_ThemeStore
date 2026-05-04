@@ -179,6 +179,7 @@ class ThemeRepository(private val context: Context) {
     }
 
     private fun parseTheme(json: JSONObject): Theme {
+        val category = json.optString("category")
         val overlays = mutableListOf<ThemeOverlay>()
         val overlayArr = json.optJSONArray("overlays")
         if (overlayArr != null) {
@@ -194,7 +195,7 @@ class ThemeRepository(private val context: Context) {
                 }
                 
                 overlays.add(ThemeOverlay(
-                    componentId = obj.optString("componentId"),
+                    componentId = obj.optString("componentId").ifBlank { category },
                     packageName = obj.optString("packageName"),
                     targetPackage = obj.optString("targetPackage"),
                     targets = targets,
@@ -230,7 +231,7 @@ class ThemeRepository(private val context: Context) {
             versionCode = json.optInt("versionCode"),
             minSdk = json.optInt("minSdk", 31),
             previewImages = previews,
-            category = json.optString("category"),
+            category = category,
             pack = json.optString("pack").takeIf { it.isNotEmpty() },
             tags = tags,
             overlays = overlays,

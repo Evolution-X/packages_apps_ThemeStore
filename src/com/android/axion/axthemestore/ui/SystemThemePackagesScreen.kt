@@ -72,6 +72,7 @@ import com.android.axion.axthemestore.viewmodel.ThemeStoreViewModel
 
 private const val CATEGORY_SIGNAL = "android.theme.customization.signal_icon"
 private const val CATEGORY_WIFI = "android.theme.customization.wifi_icon"
+private const val CATEGORY_QS_WAVEFORM = "android.theme.customization.qs_waveform"
 
 data class OverlayPackItem(
     val packageName: String,
@@ -88,13 +89,18 @@ fun SystemThemePackagesScreen(
 ) {
     val context = LocalContext.current
     var selectedTab by remember { mutableIntStateOf(0) }
-    val tabs = listOf(
-        stringResource(R.string.system_icons_title),
-        stringResource(R.string.system_themes_title)
-    )
+    val tabs = remember {
+        mutableListOf(
+            context.getString(R.string.system_icons_title),
+            context.getString(R.string.system_themes_title)
+        ).apply {
+            add(context.getString(R.string.qs_waveform_title))
+        }.toList()
+    }
 
     var signalPacks by remember { mutableStateOf<List<OverlayPackItem>>(emptyList()) }
     var wifiPacks by remember { mutableStateOf<List<OverlayPackItem>>(emptyList()) }
+    var qsWaveformPacks by remember { mutableStateOf<List<OverlayPackItem>>(emptyList()) }
 
     val previewMap = remember {
         val map = mutableMapOf<String, String>()
@@ -140,6 +146,20 @@ fun SystemThemePackagesScreen(
                 )
             } catch (_: Exception) { null }
         }
+
+        val activeQsWaveform = proxy.getCategoryTheme(CATEGORY_QS_WAVEFORM)
+        qsWaveformPacks = proxy.getAvailableOverlays(CATEGORY_QS_WAVEFORM).mapNotNull { pkg ->
+            try {
+                val ai = pm.getApplicationInfo(pkg, 0)
+                OverlayPackItem(
+                    packageName = pkg,
+                    label = ai.loadLabel(pm).toString(),
+                    isActive = pkg == activeQsWaveform,
+                    icon = try { pm.getApplicationIcon(pkg) } catch (_: Exception) { null },
+                    previewResPrefix = previewMap[pkg] ?: ""
+                )
+            } catch (_: Exception) { null }
+        }
     }
 
     LaunchedEffect(Unit) { refreshPacks() }
@@ -176,8 +196,18 @@ fun SystemThemePackagesScreen(
                 }
             }
 
-            val packs = if (selectedTab == 0) signalPacks else wifiPacks
-            val category = if (selectedTab == 0) CATEGORY_SIGNAL else CATEGORY_WIFI
+            val packs = when (selectedTab) {
+                0 -> signalPacks
+                1 -> wifiPacks
+                2 -> qsWaveformPacks
+                else -> emptyList()
+            }
+            val category = when (selectedTab) {
+                0 -> CATEGORY_SIGNAL
+                1 -> CATEGORY_WIFI
+                2 -> CATEGORY_QS_WAVEFORM
+                else -> ""
+            }
 
             if (packs.isEmpty()) {
                 EmptyState()

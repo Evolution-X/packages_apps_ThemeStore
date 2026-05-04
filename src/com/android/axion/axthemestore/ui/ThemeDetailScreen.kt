@@ -54,12 +54,12 @@ import com.android.axion.axthemestore.data.model.ThemeInstallState
 import com.android.axion.axthemestore.data.model.ThemeOverlay
 import com.android.axion.axthemestore.data.model.formatFileSize
 import com.android.axion.axthemestore.data.model.hasUpdate
-import com.android.axion.axthemestore.ui.components.AsyncNetworkImage
 import com.android.axion.axthemestore.ui.components.BackGesturePreview
 import com.android.axion.axthemestore.ui.components.BatteryStylePreview
 import com.android.axion.axthemestore.ui.components.ChargingAnimationBannerPreview
 import com.android.axion.axthemestore.ui.components.ImagePlaceholder
 import com.android.axion.axthemestore.ui.components.ThemePackagePreview
+import com.android.axion.axthemestore.ui.components.WaveformSeekBarPreview
 import com.android.axion.axthemestore.viewmodel.ThemeStoreViewModel
 
 @Composable
@@ -807,6 +807,7 @@ private fun DetailPreviewBox(theme: Theme) {
     } else emptyList()
 
     val isChargingAnim = packageName.contains("charging_animation") || category.contains("charging_animation")
+    val isWaveform = packageName.contains("waveform") || category.contains("waveform")
     val bgModifier = if (isChargingAnim) {
         Modifier.background(Color.Black)
     } else {
@@ -830,6 +831,10 @@ private fun DetailPreviewBox(theme: Theme) {
                     modifier = Modifier.fillMaxSize()
                 )
             }
+            isWaveform -> WaveformSeekBarPreview(
+                packageName = packageName,
+                modifier = Modifier.fillMaxSize(),
+            )
             packageName.contains("battery") || category.contains("battery") -> {
                 BatteryStylePreview(
                     packageName = packageName,

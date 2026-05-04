@@ -63,6 +63,7 @@ import com.android.axion.axthemestore.data.model.ThemeInstallState
 import com.android.axion.axthemestore.engine.ThemeEngineProxy
 import com.android.axion.axthemestore.ui.components.AsyncNetworkImage
 import com.android.axion.axthemestore.ui.components.ChargingAnimationBannerPreview
+import com.android.axion.axthemestore.ui.components.WaveformSeekBarPreview
 import com.android.axion.axthemestore.ui.components.BackGesturePreview
 import com.android.axion.axthemestore.ui.components.BatteryStylePreview
 import com.android.axion.axthemestore.ui.components.ImagePlaceholder
@@ -479,6 +480,7 @@ private data class ThemePreviewMeta(
     val isBattery: Boolean,
     val isBackGesture: Boolean,
     val isChargingAnim: Boolean,
+    val isWaveform: Boolean,
 )
 
 @Composable
@@ -785,12 +787,14 @@ private fun ThemePreviewBox(theme: Theme, transparentBg: Boolean = false) {
             isBattery = packageName.contains("battery") || category.contains("battery"),
             isBackGesture = packageName.contains("back_gesture") || category.contains("back_gesture"),
             isChargingAnim = packageName.contains("charging_animation") || category.contains("charging_animation"),
+            isWaveform = packageName.contains("waveform") || category.contains("waveform"),
         )
     }
     val packageName = previewMeta.packageName
     val isBattery = previewMeta.isBattery
     val isBackGesture = previewMeta.isBackGesture
     val isChargingAnim = previewMeta.isChargingAnim
+    val isWaveform = previewMeta.isWaveform
     val previewResIds = remember(packageName) { getLocalPreviewResIds(context, packageName) }
 
     val bgModifier = if (transparentBg) Modifier else Modifier.background(MaterialTheme.colorScheme.surfaceContainer)
@@ -815,6 +819,10 @@ private fun ThemePreviewBox(theme: Theme, transparentBg: Boolean = false) {
                 packageName = packageName,
                 modifier = Modifier.fillMaxSize(),
                 animate = false,
+            )
+            isWaveform -> WaveformSeekBarPreview(
+                packageName = packageName,
+                modifier = Modifier.fillMaxSize(),
             )
             theme.previewImages.isNotEmpty() -> AsyncNetworkImage(
                 url = theme.previewImages.first(),
@@ -907,12 +915,14 @@ private fun ThemeListItem(
                         isBattery = pkg.contains("battery") || cat.contains("battery"),
                         isBackGesture = pkg.contains("back_gesture") || cat.contains("back_gesture"),
                         isChargingAnim = pkg.contains("charging_animation") || cat.contains("charging_animation"),
+                        isWaveform = pkg.contains("waveform") || cat.contains("waveform"),
                     )
                 }
                 val packageName = previewMeta.packageName
                 val isBattery = previewMeta.isBattery
                 val isBackGesture = previewMeta.isBackGesture
                 val isChargingAnim = previewMeta.isChargingAnim
+                val isWaveform = previewMeta.isWaveform
                 val ctx = LocalContext.current
                 val previewResIds = remember(packageName) { getLocalPreviewResIds(ctx, packageName) }
 
@@ -959,6 +969,18 @@ private fun ThemeListItem(
                             modifier = Modifier.fillMaxSize(),
                             animate = false,
                         )
+                    } else if (isWaveform) {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .background(MaterialTheme.colorScheme.surfaceContainer),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            WaveformSeekBarPreview(
+                                packageName = packageName,
+                                modifier = Modifier.fillMaxSize(),
+                            )
+                        }
                     } else if (theme.previewImages.isNotEmpty()) {
                         AsyncNetworkImage(
                             url = theme.previewImages.first(),
