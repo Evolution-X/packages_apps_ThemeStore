@@ -71,8 +71,8 @@ fun IconPackListScreen(
                     )
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color.Transparent,
-                    scrolledContainerColor = Color.Transparent,
+                    containerColor = MaterialTheme.colorScheme.surfaceBright,
+                    scrolledContainerColor = MaterialTheme.colorScheme.surfaceBright,
                 ),
                 scrollBehavior = scrollBehavior,
             )

@@ -90,42 +90,33 @@ fun ThemeStoreScreen(
     var searchQuery by remember { mutableStateOf("") }
     var isSearchActive by remember { mutableStateOf(false) }
     
-    Scaffold { paddingValues ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-        ) {
-            if (isSearchActive) {
-                SearchScreen(
-                    viewModel = viewModel,
-                    searchQuery = searchQuery,
-                    onSearchChange = { 
-                        searchQuery = it
-                        viewModel.searchThemes(it)
-                    },
-                    onBack = { 
-                        isSearchActive = false
-                        searchQuery = ""
-                        viewModel.searchThemes("")
-                    },
-                    themes = viewModel.getFilteredThemes(),
-                    themeStates = themeStates,
-                    onThemeClick = onThemeClick
-                )
-            } else {
-                BrowseScreen(
-                    uiState = uiState,
-                    themeStates = themeStates,
-                    onSearchClick = { isSearchActive = true },
-                    onRefresh = { viewModel.loadThemes(forceRefresh = true) },
-                    onThemeClick = onThemeClick,
-                    onNavigateToCategory = onNavigateToCategory,
-
-                    onNavigateToInstalledComponents = onNavigateToInstalledComponents
-                )
-            }
-        }
+    if (isSearchActive) {
+        SearchScreen(
+            viewModel = viewModel,
+            searchQuery = searchQuery,
+            onSearchChange = { 
+                searchQuery = it
+                viewModel.searchThemes(it)
+            },
+            onBack = { 
+                isSearchActive = false
+                searchQuery = ""
+                viewModel.searchThemes("")
+            },
+            themes = viewModel.getFilteredThemes(),
+            themeStates = themeStates,
+            onThemeClick = onThemeClick
+        )
+    } else {
+        BrowseScreen(
+            uiState = uiState,
+            themeStates = themeStates,
+            onSearchClick = { isSearchActive = true },
+            onRefresh = { viewModel.loadThemes(forceRefresh = true) },
+            onThemeClick = onThemeClick,
+            onNavigateToCategory = onNavigateToCategory,
+            onNavigateToInstalledComponents = onNavigateToInstalledComponents
+        )
     }
 }
 
@@ -233,7 +224,13 @@ private fun SearchScreen(
 ) {
     val focusRequester = remember { FocusRequester() }
     
-    Column(modifier = Modifier.fillMaxSize()) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.surfaceBright)
+            .statusBarsPadding()
+            .navigationBarsPadding()
+    ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -437,8 +434,8 @@ private fun BrowseScreen(
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color.Transparent,
-                    scrolledContainerColor = Color.Transparent,
+                    containerColor = MaterialTheme.colorScheme.surfaceBright,
+                    scrolledContainerColor = MaterialTheme.colorScheme.surfaceBright,
                 ),
                 scrollBehavior = scrollBehavior,
             )
