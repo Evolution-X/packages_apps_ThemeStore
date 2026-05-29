@@ -40,6 +40,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.animation.*
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.android.axion.compose.scaffold.AxionLargeTopAppBar
 import com.android.axion.axthemestore.R
 import com.android.axion.axthemestore.engine.ThemeEngineProxy
 import com.android.axion.axthemestore.viewmodel.ThemeStoreViewModel
@@ -63,18 +64,10 @@ fun IconPackListScreen(
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         containerColor = MaterialTheme.colorScheme.surfaceBright,
         topBar = {
-            LargeFlexibleTopAppBar(
-                title = {
-                    Text(
-                        stringResource(R.string.app_icon_packs),
-                        fontWeight = FontWeight.Bold
-                    )
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.surfaceBright,
-                    scrolledContainerColor = MaterialTheme.colorScheme.surfaceBright,
-                ),
+            AxionLargeTopAppBar(
+                title = stringResource(R.string.app_icon_packs),
                 scrollBehavior = scrollBehavior,
+                containerColor = MaterialTheme.colorScheme.surfaceBright,
             )
         }
     ) { paddingValues ->

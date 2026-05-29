@@ -25,7 +25,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.pager.*
 import androidx.compose.foundation.shape.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
@@ -48,6 +47,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.android.axion.compose.scaffold.AxionLargeTopAppBar
+import com.android.axion.compose.scaffold.ExpressiveBackButton
 import com.android.axion.axthemestore.R
 import com.android.axion.axthemestore.data.model.Theme
 import com.android.axion.axthemestore.data.model.ThemeInstallState
@@ -78,26 +79,11 @@ fun ThemeDetailScreen(
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         containerColor = MaterialTheme.colorScheme.surfaceBright,
         topBar = {
-            LargeFlexibleTopAppBar(
-                title = {
-                    Text(
-                        text = theme.name,
-                        fontWeight = FontWeight.Bold,
-                    )
-                },
-                navigationIcon = {
-                    IconButton(onClick = onBackClick) {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = stringResource(R.string.back)
-                        )
-                    }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.surfaceBright,
-                    scrolledContainerColor = MaterialTheme.colorScheme.surfaceBright,
-                ),
+            AxionLargeTopAppBar(
+                title = theme.name,
                 scrollBehavior = scrollBehavior,
+                containerColor = MaterialTheme.colorScheme.surfaceBright,
+                navigationIcon = { ExpressiveBackButton(onClick = onBackClick) },
             )
         },
         bottomBar = {
