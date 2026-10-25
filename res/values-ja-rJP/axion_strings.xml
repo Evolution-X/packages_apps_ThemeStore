@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">テーマ</string>
+    <string name="see_all">すべて見る</string>
+
+    <string name="system_themes_title">システムテーマ</string>
+    <string name="system_icons_title">システムアイコン</string>
+    <string name="no_theme_packages">テーマパッケージがインストールされていません</string>
+    <string name="no_theme_packages_desc">システムアイコンやUIをカスタマイズするにはテーマパッケージをインストールしてください</string>
+    <string name="theme_applied">適用済み</string>
+    <string name="theme_not_applied">未適用</string>
+    <string name="create_theme">テーマを作成</string>
+    <string name="theme_creator_title">テーマクリエイター</string>
+    <string name="theme_name">テーマ名</string>
+    <string name="theme_name_hint">後で識別しやすいようにテーマ名を入力してください</string>
+    <string name="section_wifi_icons">Wi-Fi アイコン</string>
+    <string name="section_signal_icons">モバイル通信アイコン</string>
+    <string name="wifi_icons_desc">ステータスバーに表示される5段階の Wi-Fi 電波強度インジケーターを置き換えます</string>
+    <string name="signal_icons_desc">ステータスバーに表示される5段階のモバイル通信電波強度インジケーターを置き換えます</string>
+    <string name="current_icons_label">現在</string>
+    <string name="your_icons_label">カスタムアイコン</string>
+    <string name="import_drawable">インポート</string>
+    <string name="save_and_apply">保存して適用</string>
+    <string name="save_and_apply_count">保存して適用 (%d個のアイコン)</string>
+    <string name="creator_guide_title">システムアイコンテーマの作成方法</string>
+    <string name="creator_guide_body">ステータスバーのシステムアイコンを独自のアイコンに置き換えます。PNGまたはベクター画像をインポートしてください（推奨：24×24dp、背景透過、前景白）。システムがテーマに合わせて色を調整します。すべてのアイコンを置き換える必要はなく、インポートしたアイコンのみが上書きされます。</string>
+    <string name="advanced_overrides">詳細設定: すべてのドローアブルを上書き</string>
+    <string name="advanced_overrides_desc">システムのドローアブルリソースを名前で検索して置き換えます</string>
+    <string name="search_resource_name">リソース名</string>
+    <string name="search_resource_hint">例: ic_bluetooth, stat_sys_data, ic_qs_</string>
+    <string name="search_results_count">%d個のリソースが見つえました</string>
+
+    <string name="featured">おすすめ</string>
+    <string name="installed">インストール済み</string>
+    <string name="themes">テーマ</string>
+    <string name="search_themes">テーマを検索</string>
+    <string name="recent_searches">検索履歴</string>
+    <string name="no_recent_searches">検索履歴はありません</string>
+    <string name="clear_all">すべてクリア</string>
+    <string name="no_results_found">結果が見つかりませんでした</string>
+
+    <string name="loading_themes">テーマを読み込み中\u2026</string>
+    <string name="failed_to_load_themes">テーマの読み込みに失敗しました</string>
+    <string name="no_themes_found">テーマが見つかりませんでした</string>
+    <string name="no_themes_available">利用可能なテーマはありません</string>
+    <string name="try_different_search">別の検索ワードをお試しください</string>
+    <string name="check_back_later">新しいテーマの追加をお待ちください</string>
+    <string name="retry">再試行</string>
+
+    <string name="installed_components">インストール済みのコンポーネント</string>
+    <string name="active_theme_components">アクティブなテーマのコンポーネント</string>
+    <string name="active_theme_components_desc">現在システムに適用されているすべてのコンポーネントを表示します</string>
+    <string name="ui_style">UI スタイル</string>
+    <string name="icon_theme_components">アイコンテーマのコンポーネント</string>
+    <string name="no_icon_themes_installed">アイコンテーマがインストールされていません</string>
+    <string name="browse_for_icon_themes">テーマストアからアイコンテーマをインストールしてください</string>
+    <string name="active">アクティブ</string>
+
+    <string name="app_icon_packs">アプリアイコンパック</string>
+    <string name="themed_icons">テーマアイコン</string>
+    <string name="themed_icons_desc">壁紙の色に合わせた単色アイコン</string>
+    <string name="icon_style">アイコンスタイル</string>
+    <string name="axicons">AxIcons</string>
+    <string name="neutral">ニュートラル</string>
+    <string name="aosp">AOSP</string>
+    <string name="accent">アクセント</string>
+    <string name="default_system_icon_pack">デフォルトのシステムアイコンパック</string>
+
+    <string name="download">ダウンロード</string>
+    <string name="install">インストール</string>
+    <string name="apply">適用</string>
+    <string name="apply_changes">変更を適用</string>
+    <string name="disable">無効化</string>
+    <string name="uninstall">アンインストール</string>
+    <string name="resume_installation">インストールを再開</string>
+    <string name="downloading">%s をダウンロード中\u2026</string>
+    <string name="installing">インストール中\u2026</string>
+    <string name="update_to">v%s にアップデート</string>
+    <string name="pending_changes">適用待ちの変更</string>
+    <string name="components">コンポーネント</string>
+    <string name="tags">タグ</string>
+    <string name="error_prefix">エラー: %s</string>
+    <string name="components_installed">%2$d個中 %1$d個のコンポーネントをインストール済み</string>
+
+    <string name="back">戻る</string>
+    <string name="search">検索</string>
+    <string name="refresh">更新</string>
+    <string name="remove">削除</string>
+    <string name="clear">クリア</string>
+
+    <string name="default_ui_style">デフォルト (Axion)</string>
+</resources>
