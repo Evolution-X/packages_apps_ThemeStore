@@ -1,0 +1,15 @@
+# Readable stack traces in logcat.
+-keepattributes SourceFile,LineNumberTable
+
+# ThemeStoreViewModel is created reflectively by the default
+# ViewModelProvider factory through its (Application) constructor.
+-keepclassmembers class * extends androidx.lifecycle.AndroidViewModel {
+    <init>(android.app.Application);
+}
+-keepclassmembers class * extends androidx.lifecycle.ViewModel {
+    <init>();
+}
+
+# Glide probes for an annotation-processor generated module via reflection.
+# The app does not ship one, so silence the missing-class warning.
+-dontwarn com.bumptech.glide.GeneratedAppGlideModuleImpl
